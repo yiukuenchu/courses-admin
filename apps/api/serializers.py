@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from apps.admission.models import Course, Intake
 
 class IntakeSerializer(serializers.ModelSerializer):
     class Meta:
