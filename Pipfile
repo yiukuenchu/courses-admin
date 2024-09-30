@@ -10,6 +10,7 @@ keep_outdated = true
 django = "~=5.0.8"
 djangorestframework = "~=3.15.2"
 python-decouple = "~=3.8"
+pylint-django = "*"
 
 [dev-packages]
 pytest = "~=8.3.2"
