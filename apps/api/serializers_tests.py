@@ -1,6 +1,29 @@
 from django.test import TestCase
 
+from apps.admission.models import Course
+from apps.api.serializers import CourseSerializer
+
 
 class CourseSerializerTests(TestCase):
-    def test_dummy(self):
-        self.assertEqual(1 + 1, 2)
+    def setUp(self):
+        self.course_data = {
+            'name': 'Test Course',
+        }
+        self.course = Course.objects.create(**self.course_data)
+        self.serializer = CourseSerializer(instance=self.course)
+
+    # Test that the serializer contains the expected fields
+    def test_contains_expected_fields(self):
+        data = self.serializer.data
+        self.assertEqual(set(data.keys()), set(['id', 'name','intakes']))
+
+    # Test that the name field contains the expected value
+    def test_name_field_content(self):
+        data = self.serializer.data
+        self.assertEqual(data['name'], self.course_data['name'])
+
+    # Test that the intakes field contains the expected value
+    def test_intakes_field_content(self):
+        data = self.serializer.data
+        self.assertEqual(data['intakes'], [])
+
