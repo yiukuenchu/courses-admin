@@ -11,7 +11,7 @@ class ListCoursesTests(APITestCase):
     def setUp(self):
         self.client = APIClient()
         self.course = Course.objects.create(name='Test Course')
-        self.url = reverse('api:list_courses')
+        self.url = reverse('api:course_list')
         self.user = User.objects.create_user(username='testuser', password='testpassword')
         self.token = Token.objects.create(user=self.user)
 
