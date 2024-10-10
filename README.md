@@ -110,3 +110,25 @@ pipenv run pytest
 - Header:
   - Authorization: Token YOUR_AUTH_TOKEN
 - Send request
+
+## API Endpoints
+
+This project now includes CRUD API endpoints for managing courses and intakes. These endpoints are protected and require token authentication.
+
+### Courses
+
+- List all courses: GET `/api/admissions/courses/`
+- Create a new course: POST `/api/admissions/courses/`
+- Retrieve a specific course: GET `/api/admissions/courses/<id>/`
+- Update a specific course: PUT `/api/admissions/courses/<id>/`
+- Delete a specific course: DELETE `/api/admissions/courses/<id>/`
+
+### Intakes
+
+- List all intakes: GET `/api/admissions/intakes/`
+- Create a new intake: POST `/api/admissions/intakes/`
+- Retrieve a specific intake: GET `/api/admissions/intakes/<id>/`
+- Update a specific intake: PUT `/api/admissions/intakes/<id>/`
+- Delete a specific intake: DELETE `/api/admissions/intakes/<id>/`
+
+All endpoints require a valid authentication token to be included in the request header.
