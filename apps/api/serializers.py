@@ -8,6 +8,15 @@ class IntakeSerializer(serializers.ModelSerializer):
 
 class CourseSerializer(serializers.ModelSerializer):
     intakes = IntakeSerializer(many=True, read_only=True)
+    
     class Meta:
         model = Course
         fields = ['id', 'name', 'intakes']
+
+    def create(self, validated_data):
+        return Course.objects.create(**validated_data)
+
+    def update(self, instance, validated_data):
+        instance.name = validated_data.get('name', instance.name)
+        instance.save()
+        return instance
